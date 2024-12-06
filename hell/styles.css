@@ -1,0 +1,4 @@
+body {
+    background: url('./game.png') center top no-repeat #000;
+    background-size: cover;
+}

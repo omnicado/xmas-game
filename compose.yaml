@@ -4,8 +4,19 @@ services:
         restart: unless-stopped
         tty: true
         volumes:
-            - ./start:/app
+            - ./start:/app/public
         ports:
             - "8080:80"
+        environment:
+            SERVER_NAME: :80
+
+    hell:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./hell:/app/public
+        ports:
+            - "8081:80"
         environment:
             SERVER_NAME: :80

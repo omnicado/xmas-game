@@ -16,5 +16,11 @@
     <img src="start.png" alt="The Game begins!" class="mt-4">
 </div>
 
+<!--
+    Welcome, brave developer! 👨‍💻👩‍💻
+    This will be really easy... if you're ready to open the gates of hell. 😈
+    Hint: 8666 (Sometimes you have to cross the gates of hell to find the next step.)
+-->
+
 </body>
 </html>

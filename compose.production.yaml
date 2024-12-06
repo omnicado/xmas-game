@@ -7,7 +7,7 @@ services:
         image: ghcr.io/thedevs-cz/php:8.3
         restart: always
         volumes:
-            - ./start:/app
+            - ./start:/app/public
         environment:
             SERVER_NAME: ":80"
         labels:
@@ -16,5 +16,17 @@ services:
             - "traefik.http.routers.xmas-game-start.rule=Host(`xmas.omnicado.dev`)"
             - "traefik.http.routers.xmas-game-start.tls=true"
             - "traefik.http.routers.xmas-game-start.tls.certresolver=le"
+        networks:
+            - traefik
+
+    hell:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: always
+        volumes:
+            - ./hell:/app/public
+        environment:
+            SERVER_NAME: ":80"
+        ports:
+            - "8666:80"
         networks:
             - traefik
