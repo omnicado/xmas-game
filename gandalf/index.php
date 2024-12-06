@@ -30,7 +30,7 @@ if (isset($_SERVER['HTTP_X_MAGIC'])) {
 <div class="m-4 text-center">
     <h1>Help me, I need your magic!</h1>
 
-    <img src="hunka.png" alt="The KING!" class="img-fluid">
+    <img src="gandalf.png" alt="You shal not pass!" class="img-fluid">
 </div>
 
 </body>
