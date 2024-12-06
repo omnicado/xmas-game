@@ -1,0 +1,20 @@
+networks:
+    traefik:
+        external: true
+
+services:
+    start:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: always
+        volumes:
+            - ./start:/app
+        environment:
+            SERVER_NAME: ":80"
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.xmas-game-start.loadbalancer.server.port=80"
+            - "traefik.http.routers.xmas-game-start.rule=Host(`xmas.omnicado.dev`)"
+            - "traefik.http.routers.xmas-game-start.tls=true"
+            - "traefik.http.routers.xmas-game-start.tls.certresolver=le"
+        networks:
+            - traefik
