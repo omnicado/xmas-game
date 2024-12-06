@@ -6,3 +6,11 @@
 
 ## 2. Hell
 - White rabbit img url hint
+
+## 3. White rabbit
+
+## 4. Red/blue pill
+
+## 5. Robots vs Humans
+
+## 5. Huňka!

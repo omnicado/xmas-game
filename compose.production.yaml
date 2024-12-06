@@ -26,13 +26,118 @@ services:
             - ./hell:/app/public
         environment:
             SERVER_NAME: ":80"
-        labels:
-            - "traefik.enable=true"
-            - "traefik.http.services.xmas-game-hell.loadbalancer.server.port=80"
-            - "traefik.http.routers.xmas-game-hell.rule=Host(`hell.xmas.omnicado.dev`)"
-            - "traefik.http.routers.xmas-game-hell.tls=true"
-            - "traefik.http.routers.xmas-game-hell.tls.certresolver=le"
         ports:
             - "8666:80"
+
+    white-rabbit:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: always
+        volumes:
+            - ./white-rabbit:/app/public
+        environment:
+            SERVER_NAME: ":80"
+            WHITE_RABBIT_DOMAIN: https://the-choice.xmas.omnicado.dev/
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.xmas-game-white-rabbit.loadbalancer.server.port=80"
+            - "traefik.http.routers.xmas-game-white-rabbit.rule=Host(`white-rabbit.xmas.omnicado.dev`) || Host(`white.xmas.omnicado.dev`) || Host(`rabbit.xmas.omnicado.dev`)"
+            - "traefik.http.routers.xmas-game-white-rabbit.tls=true"
+            - "traefik.http.routers.xmas-game-white-rabbit.tls.certresolver=le"
+        networks:
+            - traefik
+
+    pills:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: always
+        volumes:
+            - ./robots:/app/public
+        environment:
+            SERVER_NAME: ":80"
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.xmas-game-pills.loadbalancer.server.port=80"
+            - "traefik.http.routers.xmas-game-pills.rule=Host(`the-choice.xmas.omnicado.dev`)"
+            - "traefik.http.routers.xmas-game-pills.tls=true"
+            - "traefik.http.routers.xmas-game-pills.tls.certresolver=le"
+        networks:
+            - traefik
+
+    blue:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: always
+        volumes:
+            - ./blue:/app/public
+        environment:
+            SERVER_NAME: :80
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.xmas-game-blue.loadbalancer.server.port=80"
+            - "traefik.http.routers.xmas-game-blue.rule=Host(`blue.xmas.omnicado.dev`)"
+            - "traefik.http.routers.xmas-game-blue.tls=true"
+            - "traefik.http.routers.xmas-game-blue.tls.certresolver=le"
+        networks:
+            - traefik
+
+    red:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: always
+        volumes:
+            - ./red:/app/public
+        environment:
+            SERVER_NAME: :80
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.xmas-game-red.loadbalancer.server.port=80"
+            - "traefik.http.routers.xmas-game-red.rule=Host(`red.xmas.omnicado.dev`)"
+            - "traefik.http.routers.xmas-game-red.tls=true"
+            - "traefik.http.routers.xmas-game-red.tls.certresolver=le"
+        networks:
+            - traefik
+
+    hunka:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: always
+        volumes:
+            - ./hunka:/app/public
+        environment:
+            SERVER_NAME: :80
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.xmas-game-hunka.loadbalancer.server.port=80"
+            - "traefik.http.routers.xmas-game-hunka.rule=Host(`hunka.xmas.omnicado.dev`)"
+            - "traefik.http.routers.xmas-game-hunka.tls=true"
+            - "traefik.http.routers.xmas-game-hunka.tls.certresolver=le"
+        networks:
+            - traefik
+
+    gandalf:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: always
+        volumes:
+            - ./gandalf:/app/public
+        environment:
+            SERVER_NAME: :80
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.xmas-game-gandalf.loadbalancer.server.port=80"
+            - "traefik.http.routers.xmas-game-gandalf.rule=Host(`gandalf.xmas.omnicado.dev`)"
+            - "traefik.http.routers.xmas-game-gandalf.tls=true"
+            - "traefik.http.routers.xmas-game-gandalf.tls.certresolver=le"
+        networks:
+            - traefik
+
+    treasure:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: always
+        volumes:
+            - ./treasure:/app
+        environment:
+            SERVER_NAME: :80
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.xmas-game-treasure.loadbalancer.server.port=80"
+            - "traefik.http.routers.xmas-game-treasure.rule=Host(`the-magical-treasure.xmas.omnicado.dev`)"
+            - "traefik.http.routers.xmas-game-treasure.tls=true"
+            - "traefik.http.routers.xmas-game-treasure.tls.certresolver=le"
         networks:
             - traefik

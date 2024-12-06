@@ -1,0 +1,5 @@
+body {
+    background: url('./blue.png') center bottom no-repeat #000;
+    background-size: cover;
+    min-height: 100vh;
+}

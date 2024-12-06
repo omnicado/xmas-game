@@ -20,3 +20,81 @@ services:
             - "8081:80"
         environment:
             SERVER_NAME: :80
+
+    white-rabbit:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./white-rabbit:/app/public
+        ports:
+            - "8082:80"
+        environment:
+            SERVER_NAME: :80
+            WHITE_RABBIT_DOMAIN: http://localhost:8083/
+
+    pills:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./pills:/app/public
+        ports:
+            - "8083:80"
+        environment:
+            SERVER_NAME: :80
+
+    blue:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./blue:/app/public
+        ports:
+            - "8084:80"
+        environment:
+            SERVER_NAME: :80
+
+    red:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./red:/app/public
+        ports:
+            - "8085:80"
+        environment:
+            SERVER_NAME: :80
+
+    hunka:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./hunka:/app/public
+        ports:
+            - "8086:80"
+        environment:
+            SERVER_NAME: :80
+
+    gandalf:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./roots:/app/public
+        ports:
+            - "8087:80"
+        environment:
+            SERVER_NAME: :80
+
+    treasure:
+        image: ghcr.io/thedevs-cz/php:8.3
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./treasure:/app
+        ports:
+            - "8088:80"
+        environment:
+            SERVER_NAME: :80
