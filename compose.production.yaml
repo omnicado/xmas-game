@@ -26,6 +26,12 @@ services:
             - ./hell:/app/public
         environment:
             SERVER_NAME: ":80"
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.xmas-game-hell.loadbalancer.server.port=80"
+            - "traefik.http.routers.xmas-game-hell.rule=Host(`hell.xmas.omnicado.dev`)"
+            - "traefik.http.routers.xmas-game-hell.tls=true"
+            - "traefik.http.routers.xmas-game-hell.tls.certresolver=le"
         ports:
             - "8666:80"
         networks:
