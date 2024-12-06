@@ -36,7 +36,7 @@ services:
             - ./white-rabbit:/app/public
         environment:
             SERVER_NAME: ":80"
-            WHITE_RABBIT_DOMAIN: https://the-choice.xmas.omnicado.dev/
+            WHITE_RABBIT_DOMAIN: https://the-choice.xmas.omnicado.dev
         labels:
             - "traefik.enable=true"
             - "traefik.http.services.xmas-game-white-rabbit.loadbalancer.server.port=80"
@@ -50,7 +50,7 @@ services:
         image: ghcr.io/thedevs-cz/php:8.3
         restart: always
         volumes:
-            - ./robots:/app/public
+            - ./pills:/app/public
         environment:
             SERVER_NAME: ":80"
         labels:
