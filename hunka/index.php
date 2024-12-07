@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $date = DateTime::createFromFormat('Y-m-d', $data['date']);
         if ($date && $date->format('Y-m-d') === $data['date']) {
             // Check if the data matches the expected values
-            if ($data['date'] === '2024-05-13' && $data['message'] === 'Init commit') {
+            if ($data['date'] === '2020-05-13' && $data['message'] === 'Init commit') {
                 // Return the JSON response
                 header('Content-Type: application/json');
                 echo json_encode(['lastStop' => 'gandalf']);

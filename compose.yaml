@@ -82,7 +82,7 @@ services:
         restart: unless-stopped
         tty: true
         volumes:
-            - ./roots:/app/public
+            - ./gandalf:/app/public
         ports:
             - "8087:80"
         environment:
